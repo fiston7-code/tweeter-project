@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contanct</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+    --primary-100: #0d1b2a;
+    --primary-200: #1b263b;
+    --primary-300: #415a77;
+    --accent-100: #4cc9f0;
+    --accent-200: #4895ef;
+    --text-primary: #e0e1dd;
+    --text-secondary: #0d1b2a;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --gradient: linear-gradient(135deg, var(--accent-200), var(--accent-100));
+
+    }
+
+
+    body {
+        background: var(--primary-100);
+        font-family: "poppins" sans-serif;
+        color: var(--text-primary);
+        min-height: 100vh;
+
+
+        }
+
+
+
+    .header {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: var(--gradient);
+    border-bottom: 1px solid var(--primary-300);
+    backdrop-filter: blur 10px;
+    width: 100%;
+
+    }
+
+
+    .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-200);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+.nav-links a {
+    text-decoration: none;
+    color: var(--accent-200);
+    font-weight: 600;
+    position: relative;
+    padding: 0.5rem;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition:  width 0.3s ease;
+}
+
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 4rem 5%;
+}
+
+.titles h3,p{
+    margin-bottom: 2rem;
+}
+
+.all-form {
+    padding: 5rem 8%;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.first-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-group>input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.cta-button {
+    width: 50%;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: var(--gradient);
+    font-size: 1rem;
+    color: var(--text-primary);
+    
+}
+
+.footer-content {
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 1rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+    }
+
+    
+    .footer-section p {
+        color: var(--text-primary);
+        transition: color 0.3s;
+        &:hover {
+            color: var(--accent-200);
+        }
+    }
+
+    .social-media h3 {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        color: var(--text-primary);
+
+    }
+
+    .social-media a {
+        color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    }
+
+    .social-media a :hover {
+        color: var(--accent-200)
+
+    }
+
+    @media (max-width: 768px) {
+        .container,
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+    }
+
+
+
+    
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            Fiston Service
+        </div>
+        <nav class="nav-links">
+            <a href="Acceuille.html">Acceuille</a>
+            <a href="cv.html">CV</a>
+            <a href="projects.html">Projets</a>
+            <a href="contact.html">Contanct</a>
+            
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="titles">
+                <h3>Phone</h3>
+                <p>+243993769146</p>
+                <h3>Email</h3>
+                <p>Kalambayifiston7@gmail.com</p>
+
+            </div>
+            <div class="contact">
+                <h2>contact</h2>
+
+            </div>
+            <div class="all-form">
+                <div class="first-form">
+                <form action="">
+                    <div class="form-group">
+                        <label for="First-name">First name</label> <br>
+                        <input type="text"  id="First-name" name="First-name" required>
+                       
+
+                    </div>
+                    <div class="form-group">
+                        <label for="last name">Last name</label> <br>
+                        <input type="text" name="last name" id="last name"  required>
+                        
+
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <label for="email">Email</label> <br>
+                        <input type="email" name="email" id="email">
+                        
+
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label> <br>
+                        <input type="text" name="subject" id="subject">
+                        
+
+                    </div>
+                    <div>
+                        <p>
+                            <label for="ameliorer">Message</label>
+                            <textarea name="ameliorer" id="ameliorer"></textarea>
+                        </p>
+                        </div>
+                    
+                </form>
+                <div class="btn">
+                    <button class="cta-button">Envoyer</button>
+    
+                </div>
+               
+            </div>
+           
+        </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <hr>
+            <div class="footer-content">
+            <div class="footer-section">
+                <h3>Télephone</h3>
+                <p>+243993769146</p>
+            </div>
+            <div class="footer-section">
+                <h3>Email</h3>
+                <p>Kalambayifiston7@gmail.com</p>
+            </div>
+            <div class="social-media">
+                <h3>Suivez-moi</h3>
+                <a href="#" aria-label=""twitter>
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" aria-label=""instagram>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label=""github>
+                <i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="linkedin">
+                    <i class="fa-brands fa-linkedin"></i></a>
+            
+
+            </div>
+            <p>&copy; 2025 by Fiston all rigths reserved</p>
+
+        </div>
+    </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cv</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+    --primary-100: #0d1b2a;
+    --primary-200: #1b263b;
+    --primary-300: #415a77;
+    --accent-100: #4cc9f0;
+    --accent-200: #4895ef;
+    --text-primary: #e0e1dd;
+    --text-secondary: #0d1b2a;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --gradient: linear-gradient(135deg, var(--accent-200), var(--accent-100));
+
+    }
+
+
+        body {
+            background: var(--primary-100);
+            font-family: "poppins" sans-serif;
+            color: var(--text-primary);
+            min-height: 100vh;
+            }
+    
+
+    .header {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background-color: var(--gradient);
+    border-bottom: 1px solid var(--primary-300);
+    backdrop-filter: blur 10px;
+    width: 100%;
+
+        }
+
+    .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-200);
+    }
+
+    .nav-links {
+    display: flex;
+    gap: 2rem;
+
+    }
+
+    .nav-links a {
+    text-decoration: none;
+    color: var(--accent-200);
+    font-weight: 600;
+    position: relative;
+    padding: 0.5rem;
+
+    }
+
+    .nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition:  width 0.3s ease;
+
+    }
+
+    .nav-links a:hover::after {
+    width: 100%;
+
+    }
+
+    .container {
+        padding: 4rem 8%;
+    }
+
+    ul {
+        padding: 4rem 3%;
+    }
+    
+    p {
+        margin-bottom: 1.5rem;
+    }
+    
+    
+    
+    .footer {
+        padding: 4rem 8%;
+    }
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+        color: var(--text-primary);
+
+    }
+
+    .footer-section p {
+        color: var(--text-primary);
+        transition: color 0.3s;
+    }
+
+    .footer-section p:hover {
+        color: var(--accent-200);
+    }
+
+    .social-media h3 {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    
+        }
+
+    .social-media a {
+        text-decoration: none;
+        color: var(--text-primary);
+        transition: color 0.3s;
+    }
+
+    .social-media a:hover {
+        color: var(--accent-200);
+    }
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            Fiston Service
+        </div>
+        <nav class="nav-links">
+            <a href="Acceuille.html">Acceuille</a>
+            <a href="cv.html">CV</a>
+            <a href="projects.html">Projets</a>
+            <a href="contact.html">Contanct</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+        <h2>Curriculum vitae</h2>
+        <p><h2>Expérience Professionnelle</h2></p>
+        <p><h3>développeur Front-End HTML et CSS</h3></p>
+        <P><strong>KADEA</strong>-KINSHASA</P>
+        <p>au sein d'une grande école du code de l'Afrique centrale, capable de travailler et résoudre des problemes du côté visuel d'un site web:</p>
+            <ul>
+                <li>Développement: html & css;</li>
+                <li>Ajout de nouveaux endpoints: animation CSS;</li>
+                <li>Utilisation des outils moderne du Développement;</li>
+            </ul>
+        <hr>
+        <p><h3>Etudes faites</h3></p>
+        <p><strong>Diplôme d'Etat en pédagogie</strong> </p>
+        <p><strong>certificat Développement web full-stack</strong></p>
+        <p>KADEA-ACADEMIE KINSHASA</p>
+        <p></p>
+        <hr>
+        <p><h3>Langues</h3></p>
+        <p>
+            <ul>
+                <li>Fran</li>
+                <li>Anglais</li>
+                <li>lingala</li>
+                <li>swahili</li>
+                <li>tshiluba</li>
+            </ul>
+        </p>
+    </div>
+    </main>
+    <footer>
+        <div class="footer">
+            <hr>
+            <div class="footer-content">
+            <div class="footer-section">
+                <h3>Télephone</h3>
+                <p>+243993769146</p>
+            </div>
+            <div class="footer-section">
+                <h3>Email</h3>
+                <p>Kalambayifiston7@gmail.com</p>
+            </div>
+            <div class="social-media">
+                <h3>Suivez-moi</h3>
+                <a href="#" aria-label=""twitter>
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" aria-label=""instagram>
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" aria-label=""github>
+                <i class="fa-brands fa-github"></i></a>
+                <a href="#" aria-label="linkedin">
+                    <i class="fa-brands fa-linkedin"></i></a>
+            
+
+            </div>
+            <p>&copy; 2025 by Fiston all rigths reserved</p>
+
+        </div>
+    </div>
+    </footer>
+</body>
+</html>
