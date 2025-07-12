@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page d'acceuille</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-black text-white">
+    <div class="flex min-h-screen">
+      <!-- le nav-bar du coté gauche -->
+      <aside
+        class="hidden w-1/5 lg:block p-3 bg-black border-r border-gray-700"
+      >
+        <div class="flex items-center justify-center mb-4 gap-8 ho">
+      
+        <div class="flex flex-col gap-2 mt-4 justify-center pl-4">
+          <a href="" class="text-2xl p-3 hover:bg-gray-700 rounded-full" ><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="" class=" text-2xl flex items-center gap-4 hover:bg-gray-700 p-3 rounded-full"
+            ><i class="fa-solid fa-house"></i><span>acceuille</span></a
+          >
+          <a href="" class="flex items-center gap-4 text-2xl hover:bg-gray-700 p-3 rounded-full"
+            ><i class="fa-solid fa-magnifying-glass" 
+              ></i
+            ><span>Explorer</span></a>
+          <a href="" class="flex items-center text-2xl  gap-4 hover:bg-gray-700 p-3 rounded-full" ><i class="fa-solid fa-bell"></i><span>Notifications</span></a>
+          <a href=""class="flex items-center text-2xl gap-4 hover:bg-gray-700 p-3 rounded-full" ><i class="fa-solid fa-envelope" ></i><span>Messages</span></a>
+          <a href=""class="flex items-center text-2xl gap-4 hover:bg-gray-700 p-3 rounded-full" ><i class="fa-solid fa-o" ></i><span>Grok</span></a>
+          <a href=""class="flex items-center text-2xl gap-4 hover:bg-gray-700 p-3 rounded-full"><i class="fa-solid fa-user-group" ></i><span>Communautés</span></a>
+          <a href=""class="flex items-center text-2xl gap-4 hover:bg-gray-700 p-3 rounded-full"><i class="fa-solid fa-user" ></i><span>Profil</span></a>
+          <a href=""class="flex items-center text-2xl gap-4 hover:bg-gray-700 p-3 rounded-full"><i class="fa-solid fa-ellipsis border rounded-full border-white p-1"></i><span>plus</span></a>
+          <a href="" class="flex items-center justify-center mt-2 text-2xl bg-white font-bold text-black p-3 rounded-full hover:bg-[#d2d0c8]">Poster</a>
+                    <!-- profil utilisateur -->
+    <div class="flex items-center gap-3 p-3 hover:bg-gray-800 rounded-full cursor-pointer mt-4">
+    <img src="https://via.placeholder.com/40" alt="Photo de profil" class="rounded-full w-10 h-10">
+    <div>
+      <p class="font-bold text-sm">Nom d'utilisateur</p>
+      <p class="text-gray-400 text-sm">@pseudo</p>
+    </div>
+    <i class="fa-solid fa-ellipsis"></i>
+  </div>
+        </div>
+  
+      </aside>
+
+      <!-- la partie principale de la page -->
+      <main class="flex-1 border-gray-700 border-x w-full max-w-2xl">
+        <div class="p-2 border-b border-gray-700 sticky top-0 bg-black z-10">
+          <div class="flex items-center gap-6 text-xl justify-center">
+          <a href="" class=" hover:bg-gray-800 p-2 transition duration-300">Pour vous</a>
+          <a href="">Abonnement</a>
+          <a href="">E-commerce</a>
+          <a href="">Web-developer</a>
+          </div>
+        </div>
+        <div id="tweet-form" class="p-6 border-b border-gray-700 bg:black ">
+          <div class="flex gap-4">
+          <img src="sl_z_072523_61700_01.jpg" alt="user-photo" class="rounded-full w-10 h-10">
+          <form action="" class="flex-1">
+            <textarea name="tweet" id="textarea" placeholder="Quoi de neuf ?" class="text-2xl w-full  text-white bg-black placeholder-gray-600 resize-none outline-none "></textarea>
+          </form>
+         
+           <div class="flex items-center justify-between mt-2">
+            <div class="flex gap-4 text-lg  ">
+            <a href="" class="text-blue-500"><i class="fa-solid fa-image"></i></a>
+            <a href="" class="text-blue-500"><i class="fa-solid fa-face-smile"></i></a>
+            </div>
+          </div>
+           </div>
+         
+
+        </div>
+        
+
+      </main>
+      <!-- la partie droite de la page -->
+      <aside class="hidden lg:block w-1/4 p-4">
+        <p>bonjour</p>
+      </aside>
+    </div>
+
+  </body>
+</html>

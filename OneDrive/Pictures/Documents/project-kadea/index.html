@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page d'auth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script
+      type="text/javascript"
+      src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/build/appleid.min.js"
+    ></script>
+    <script type="module" src="./js/script.js"></script>
+  </head>
+  <body class="bg-black text-white w-full h-screen items-center">
+    <main
+      class="bg-black text-white flex flex-col lg:flex-row md:mb-32 min-h-screen text-center w-full h-full items-center justify-center"
+    >
+      <div
+        class="flex justify-center w-full mt-4 w-full h-64 md:h-full md:w-1/2"
+      >
+        <img
+          src="sl_z_072523_61700_01.jpg"
+          alt=""
+          class="h-auto w-32 lg:w-full md:h-auto lg:h-screen lg:object-cover md:w-full md: lg:w-1/2 mx-auto"
+        />
+      </div>
+
+      <div class="auth w-full md:w-1/2 flex justify-center items-center">
+        <div class="p-4 md:max-w-sm w-full text-center">
+          <h3 class="text-xl md:2x font-bold mb-4 lg:font-black text-white">
+            Ça se passe maintenant !
+          </h3>
+          <p class="text-white mb-6">Inscrivez-vous.</p>
+
+          <div class="mb-4">
+            <div
+              id="g_id_onload"
+              data-client_id="VOTRE_CLIENT_ID_GOOGLE.apps.googleusercontent.com"
+              data-callback="handleGoogleCredentialResponse"
+              data-auto_prompt="false"
+            ></div>
+            <div
+              class="g_id_signin"
+              data-type="standard"
+              data-size="large"
+              data-theme="outline"
+              data-text="signUp-with"
+              data-shape="pill"
+              data-logo_alignment="left"
+            ></div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-medium mb-2">Avec Apple :</h4>
+            <div
+              id="appleid-signin"
+              data-color="black"
+              data-mode="signin"
+              class="apple-sign-in-button"
+            ></div>
+          </div>
+          <div class="flex items-center my-6">
+            <hr class="flex-grow border-gray-600" />
+            <span class="mx-4 text-gray-400 text-sm">OU</span>
+            <hr class="flex-grow border-gray-600" />
+          </div>
+
+          <a
+            href="inscription.html"
+            class="block bg-blue-500 text-white rounded-full p-3 w-full max-w-sm font-medium"
+            >Créer un Compte</a
+          >
+
+          <p class="text-sm text-gray-500 mb-8 mt-3">
+            En continuant, vous acceptez nos
+            <a href="#" class="text-blue-500 hover:underline"
+              >Conditions d'utilisation</a
+            >.
+          </p>
+
+          <h3 class="mb-2">Vous avez déjà un Compte ?</h3>
+          <a
+            href="./seConnecterEmail.html"
+            class="block bg-transparent border border-gray-600 text-blue-500 rounded-full p-2 w-full max-w-sm font-semibold bg"
+            >Se connecter</a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="text-center p-4 text-gray-600">
+      <div
+        class="text-sm flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs mb-3"
+      >
+        <a href="">à Propos</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Télecharger l'application X</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Grok</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Centre d'assistance</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Condition d'utilisation</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Politique de confidentialité</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Politique relative aux cookies </a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Accessibilité</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">information sur les publicités</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Blog</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Carrières</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Ressource de la marque </a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Publicité</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">X pour les professionnels</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Développeurs</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Répertoire</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+
+        <a href="">Paramètres</a>
+        <div class="w-px h-4 bg-gray-600"></div>
+      </div>
+      <p class="text-gray-600">&copy; 2025 X carp</p>
+    </footer>
+  </body>
+</html>

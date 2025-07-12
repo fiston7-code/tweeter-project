@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>page se connecter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- <script
+      type="text/javascript"
+      src="https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/build/appleid.min.js"
+    ></script> -->
+    <script type="module" src="./js/email.js"></script>
+  </head>
+  <body class="bg-black w-full h-screen">
+    <button
+      class="fixed top-4 left w-10 h-10 flex items-center justify-center rounded-full text-white hover:bg-blue-600 z-50"
+      onclick="window.history.back();"
+    >
+      <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
+
+    <div class="flex justify-center w-full mt-4">
+      <img src="sl_z_072523_61700_01.jpg" alt="" class="w-32 h-auto" />
+    </div>
+
+    <div class="auth w-1/1 flex justify-center items-center">
+      <div class="p-8 rounded-lg max-w-sm w-full text-center">
+        <h3 class="text-2xl font-semibold mb-4 font-bold text-white">
+          Connectez-vous à X
+        </h3>
+            <div class="mb-4">
+            <div
+              id="g_id_onload"
+              data-client_id="VOTRE_CLIENT_ID_GOOGLE.apps.googleusercontent.com"
+              data-auto_prompt="false"
+            ></div>
+            <div
+              class="g_id_signin"
+               data-type="standard"
+               data-size="large"
+         data-theme="outline"
+        data-text="signUp-with"
+         data-shape="pill" 
+         data-logo_alignment="left" >
+      </div>
+
+   
+      <!-- lien du boutton apple qui ne marche pas -->
+    <!-- <div>
+      <h4 class="text-lg font-medium mb-2">Avec Apple :</h4>
+      <div
+        id="appleid-signin"
+        data-color="black"
+        data-mode="signin"
+        class="apple-sign-in-button"
+      ></div> -->
+      <div class="flex items-center my-6">
+            <hr class="flex-grow border-gray-600" />
+            <span class="mx-4 text-gray-400 text-sm">OU</span>
+            <hr class="flex-grow border-gray-600" />
+          </div>
+          <form  id="formEmailOrPhone" class="space-y-4">
+            <input type="text" id="emailOrPhone" name="email" placeholder="Numero de Teléphone ou Adress Email" required class="w-full p-2 mb-4 border border-gray-600 rounded bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500" />
+            <button type="submit" class=" bg-white font-bold p-4 rounded-full mb-32 hover:bg-blue-500 w-full ">suivant</button>
+          </form>
+              <a href="inscription.html"class="w-full block bg-transparent text-white font-bold border border-gray-600 rounded-full p-4 mt-8 hover:bg-[#d2d0c8] hover:text-[#000]">Mot de passe oublié ?</a> 
+            <p class="text-gray-600 mt-12">vous n'avez pas de compte ? <a href="inscription.html" class="text-blue-500">Inscrivez-vous</a></p>
+       </div>
+    </div>
+  </body>
+</html>

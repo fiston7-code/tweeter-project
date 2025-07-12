@@ -1,0 +1,118 @@
+/clone-x
+│
+├── index.html                ← Accueil (timeline)
+├── profil.html               ← Page Profil
+│
+├── /js
+│   ├── script.js             ← Fichier principal d'index.html
+│   ├── auth.js               ← Connexion / inscription
+│   ├── userStorage.js        ← localStorage / sessionStorage
+│   ├── tweet.js              ← Création et affichage des tweets
+│   ├── dom.js                ← Fonctions d’affichage (DOM)
+│   └── utils.js              ← Compteur caractères, recherche, etc.
+│
+├── /data
+│   └── db.json               ← Base JSON Server
+│
+├── /css
+│   └── styles.css / tailwind
+
+
+
+| CSS                              | Tailwind                              |
+| -------------------------------- | ------------------------------------- |
+| `width: 25%`                     | `w-1/4`                               |
+| `height: 100vh`                  | `h-screen`                            |
+| `background-color: red`          | `bg-red-500` (ou `bg-red-600`, etc.)  |
+| `padding: 4rem 2rem`             | `p-16 px-8` (`4rem = 16`, `2rem = 8`) |
+| `margin-left: 2rem`              | `ml-8` (`2rem = 8`)                   |
+| `border-bottom: 2px solid white` | `border-b-2 border-white`             |
+| `display: flex`                  | `flex`                                |
+| `flex-direction: column`         | `flex-col`                            |
+| `justify-content: center`        | `justify-center`                      |
+| `align-items: center`            | `items-center`                        |
+| `gap: 2rem`                      | `gap-8` (`2rem = 8`)                  |
+| `position: fixed`                | `fixed`                               |
+
+
+
+1. Premier <aside> (sidebar gauche) :
+hidden md:flex
+
+w-1/5
+
+bg-black p-4 border-r border-gray-700
+
+2. <main> (zone centrale) :
+flex-1
+
+md:ml-[20%]
+
+w-full max-w-2xl
+
+border-x border-gray-700
+
+3. Deuxième <aside> (section de droite) :
+hidden lg:block
+
+w-1/4
+
+p-4
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clone X - Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-black text-white">
+    <div class="flex min-h-screen">
+      <!-- Barre latérale -->
+      <aside
+        class="hidden md:flex flex-col fixed top-0 left-0 h-full w-1/5 p-6 bg-black border-r border-gray-700 space-y-6"
+      >
+        <h1 class="text-2xl font-bold text-blue-500">X</h1>
+        <nav class="space-y-4 text-lg font-medium">
+          <a href="#" class="hover:text-blue-400">Accueil</a>
+          <a href="#" class="hover:text-blue-400">Explorer</a>
+          <a href="#" class="hover:text-blue-400">Notifications</a>
+          <a href="#" class="hover:text-blue-400">Messages</a>
+          <a href="#" class="hover:text-blue-400">Profil</a>
+          <a href="#" class="hover:text-blue-400">Paramètres</a>
+        </nav>
+        <button
+          class="mt-auto bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+        >
+          Poster
+        </button>
+      </aside>
+
+      <!-- Flux principal -->
+      <main
+        class="flex-1 md:ml-[20%] lg:ml-[20%] border-x border-gray-700 w-full max-w-2xl mx-auto"
+      >
+        <div class="p-4 border-b border-gray-700">
+          <h2 class="text-xl font-bold">Accueil</h2>
+        </div>
+
+        <!-- Exemple de tweet -->
+        <div class="p-4 border-b border-gray-800 hover:bg-gray-900 transition">
+          <h3 class="font-semibold">Nom d’utilisateur</h3>
+          <p class="text-sm text-gray-400">@utilisateur</p>
+          <p class="mt-2">Ceci est un tweet d'exemple pour ton clone X ✨</p>
+        </div>
+      </main>
+
+      <!-- Section droite -->
+      <aside class="hidden lg:block w-1/4 p-6">
+        <div class="bg-gray-900 p-4 rounded-lg">
+          <h4 class="font-bold mb-2">Tendances pour</h4>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
