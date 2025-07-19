@@ -116,3 +116,166 @@ p-4
     </div>
   </body>
 </html>
+
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const input = inputTextErea.value.trim();
+  if (input === "") return;
+
+  const tweetElement = document.createElement("div");
+  tweetElement.className = "flex gap-2 p-6 border-b border-gray-700";
+
+  tweetElement.innerHTML = `
+    <img src="https://via.placeholder.com/40" alt="user" class="rounded-full w-10 h-10">
+    <div class="flex-1">
+      <div class="flex items-center gap-2 text-sm text-gray-400">
+        <span class="font-bold text-white">Fiston Kalambayi</span>
+        <span>@fistonCodeur</span>
+        <span>· maintenant</span>
+      </div>
+      <p class="text-white text-base mt-1">${input}</p>
+      <div class="flex justify-between text-gray-500 text-sm mt-3 max-w-md">
+        <div class="flex items-center gap-2 hover:text-blue-500 cursor-pointer">
+          <i class="fa-regular fa-comment"></i>
+          <span>0</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-green-500 cursor-pointer">
+          <i class="fa-solid fa-retweet"></i>
+          <span>0</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-pink-500 cursor-pointer">
+          <i class="fa-regular fa-heart"></i>
+          <span>0</span>
+        </div>
+        <div class="flex items-center gap-2 hover:text-blue-400 cursor-pointer">
+          <i class="fa-solid fa-arrow-up-from-bracket"></i>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const tweetList = document.getElementById("tweet-list");
+  tweetList.prepend(tweetElement);
+  inputTextErea.value = "";
+});
+
+
+✅ 1. Variables
+js
+Copier
+Modifier
+let nom = "Fiston";
+const age = 25;
+✅ 2. Conditions
+js
+Copier
+Modifier
+if (age >= 18) {
+  console.log("Majeur");
+} else {
+  console.log("Mineur");
+}
+✅ 3. Fonctions
+js
+Copier
+Modifier
+function direBonjour(nom) {
+  return "Salut " + nom;
+}
+Fonction fléchée :
+
+js
+Copier
+Modifier
+const direBonjour = (nom) => "Salut " + nom;
+✅ 4. Boucles
+js
+Copier
+Modifier
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+const fruits = ["pomme", "banane"];
+fruits.forEach((fruit) => console.log(fruit));
+✅ 5. Tableaux
+js
+Copier
+Modifier
+const notes = [12, 15, 18];
+notes.push(20);
+console.log(notes.length);
+✅ 6. Objets
+js
+Copier
+Modifier
+const utilisateur = {
+  nom: "Fiston",
+  age: 25,
+};
+console.log(utilisateur.nom);
+✅ 7. Manipulation du DOM
+js
+Copier
+Modifier
+const bouton = document.getElementById("envoyer");
+const champs = document.querySelector("input");
+Modifier le contenu :
+
+js
+Copier
+Modifier
+document.getElementById("titre").textContent = "Bienvenue !";
+✅ 8. Événements
+js
+Copier
+Modifier
+bouton.addEventListener("click", () => {
+  alert("Clique détecté !");
+});
+✅ 9. Conditions avancées
+js
+Copier
+Modifier
+const loggedIn = true;
+const message = loggedIn ? "Connecté" : "Non connecté";
+✅ 10. Fetch (appel API simulé)
+js
+Copier
+Modifier
+fetch("http://localhost:3000/tweets")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+✅ 11. Local Storage
+js
+Copier
+Modifier
+localStorage.setItem("email", "fiston@mail.com");
+const email = localStorage.getItem("email");
+localStorage.removeItem("email");
+
+
+
+Écris un code pour sauvegarder dans le localStorage une clé  avec la valeur .
+Puis écris le code pour récupérer cette valeur et l’afficher dans la console.
+
+À toi
+
+
+ <main class="flex--1 max-w3xl w-full mx-auto p-6">
+        
+
+        <!-- Section Profil -->
+        <section
+          id="profil-container"
+          class="bg-white p-6 rounded-2xl shadow mb-8"
+        >
+          <!-- Infos utilisateur (nom, email, pseudo, etc.) injectées en JS -->
+        </section>
+
+        <!-- Tweets utilisateur -->
+        <section id="user-tweets" class="space-y-4">
+          <!-- Tweets de l'utilisateur injectés dynamiquement -->
+        </section>
+      </main>

@@ -1,73 +1,73 @@
-import { utilisateurConnecter } from "./auth.js";
-const tweetForm = document.getElementById("tweet-form");
-const form = document.getElementById("form");
-const inputTextErea = document.getElementById("tweet-text");
-const conteneurTweets = document.getElementById("tweet-list");
+import { getUserByEmail } from "./auth.js";
+const localEmail = localStorage.getItem("emailSoumis");
+if (!localEmail) {
+  window.location.href = "./seConnecterEmail.html";
+}
+const nomProfil = document.querySelector(".profil-nom");
+const nom = document.getElementById("nom-profil");
+const pseudo = document.getElementById("pseudo-profil");
+const email = document.getElementById("email-profil");
+const bio = document.getElementById("bio-profil");
+const avatar = document.getElementById("avatar");
+const banner = document.getElementById("banner");
+const locationProfil = document.getElementById("location-profil");
+const webSiteProfil = document.getElementById("website-profil");
+const created = document.getElementById("createdAt-profil");
+const following = document.getElementById("following-profil");
+const followers = document.getElementById("followers-profil");
 
-addEventListener("DOMContentLoaded", (e) => {
-  const email = localStorage.getItem("emailSoumis");
-  if (email === null) {
-    tweetForm.style.display = "none";
-  } else {
-    tweetForm.style.display = "block";
-  }
+const nomSidebar = document.getElementById("sidebar-nom");
+const pseudoSidebar = document.getElementById("sidebar-pseudo");
 
-  chargerTweets();
+getUserByEmail(localEmail).then((user) => {
+  if (!user) return;
+
+  nom.textContent = user.name;
+  nomProfil.textContent = user.name;
+  pseudo.textContent = "@" + user.username;
+  email.textContent = user.email;
+  bio.textContent = user.bio;
+  locationProfil.textContent = user.location;
+  webSiteProfil.textContent = user.website;
+  created.textContent = new Date(user.createdAt).toLocaleDateString();
+  followers.textContent = user.followers;
+  following.textContent = user.following;
+
+  if (avatar) avatar.src = user.profilePicture;
+  if (banner) banner.src = user.coverPicture;
+
+  if (nomSidebar) nomSidebar.textContent = user.name;
+  if (pseudoSidebar) pseudoSidebar.textContent = "@" + user.username;
+
+  locationProfil.innerHTML = `<i class="fa-solid fa-location-dot mr-1 text-gray-500"></i> ${user.location}`;
+  webSiteProfil.innerHTML = `<i class="fa-solid fa-globe mr-1 text-gray-500"></i> visiter le site <a href="${user.website}" target="_blank" class="text-blue-500 hover:underline">${user.website}</a>`;
+  email.innerHTML = `<i class="fa-solid fa-envelope" mr-1 text-gray-500"></i> mon email <a href="${user.email}" target="_blank" class="text-blue-500 hover:underline">${user.email}</a>`;
+  created.innerHTML = `<i class="fa-solid fa-calendar-days" mr-1 text-gray-500"></i> A rejoint X le ${new Date(
+    user.createdAt
+  ).toLocaleDateString()}`;
+  bio.innerHTML = `<i class="fa-solid fa-user-pen mr-1 text-gray-500"></i> ${user.bio}`;
+  followers.innerHTML = `<i class="fa-solid fa-users mr-1 text-gray-500"></i> <span class="text-white">${user.followers}</span> abonnés`;
+  following.innerHTML = `<i class="fa-solid fa-users mr-1 text-gray-500"></i> <span class="text-white">${user.following}</span> abonnements`;
+
+  chargerTweets(user.email);
 });
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const input = inputTextErea.value;
-  const email = localStorage.getItem("emailSoumis");
-
-  utilisateurConnecter().then((user) => {
-    const pseudoSansArobase = email.split("@")[0];
-    const emailSansArobase = email.split("@")[0];
-
-    const pseudo = "@" + pseudoSansArobase;
-
-    // const avatar =
-    //   user.avatar ||
-    //   "https://t4.ftcdn.net/jpg/03/74/64/51/240_F_374645192_A1auR4EmLbz1JixGQKOSpHb2JAH3H7hH.jpg";
-
-    // Remplacez par l'URL de l'avatar
-
-    const tweet = {
-      auteur: emailSansArobase,
-      pseudo: pseudo,
-      // avatar: avatar, // Remplacez par l'URL de l'avatar
-      contenu: input,
-      date: "à l'instant",
-      likes: 0,
-      retweets: 0,
-      commentaires: 0,
-    };
-
-    fetch("http://localhost:3000/tweets", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(tweet),
-    }).then(() => {
-      chargerTweets();
-    });
-
-    inputTextErea.value = "";
-  });
-});
-
-function chargerTweets() {
+function chargerTweets(email) {
   fetch("http://localhost:3000/tweets")
     .then((response) => response.json())
     .then((tweets) => {
+      const conteneurTweets = document.getElementById("user-tweets");
       conteneurTweets.innerHTML = "";
 
-      tweets.forEach((tweet) => {
+      // 🔽 Filtrer les tweets de l'utilisateur
+      const userTweets = tweets.filter(
+        (tweet) => tweet.auteur && tweet.auteur.includes(email.split("@")[0])
+      );
+
+      userTweets.reverse().forEach((tweet) => {
         const tweetDiv = document.createElement("div");
         tweetDiv.classList.add("mb-6", "p-4", "border-b", "border-gray-700");
 
-        // Ligne avec pseudo et date
         const headerDiv = document.createElement("div");
         headerDiv.classList.add(
           "flex",
@@ -77,17 +77,12 @@ function chargerTweets() {
           "text-gray-400"
         );
 
-        // Ligne avec avatar et pseudo
         const img = document.createElement("img");
         img.src =
           tweet.avatar ||
-          "https://t4.ftcdn.net/jpg/03/74/64/51/240_F_374645192_A1auR4EmLbz1JixGQKOSpHb2JAH3H7hH.jpg"; // emplacez par l'URL de l'avatar
+          "https://t4.ftcdn.net/jpg/03/74/64/51/240_F_374645192_A1auR4EmLbz1JixGQKOSpHb2JAH3H7hH.jpg";
         img.alt = "Avatar";
         img.classList.add("w-10", "h-10", "rounded-full");
-        headerDiv.appendChild(img);
-
-        const userPhoto = document.getElementById("user-photo");
-        userPhoto.src = img.src; // Mettre à jour l'image de l'utilisateur dans la barre de navigation
 
         const pseudo = document.createElement("span");
         pseudo.textContent = tweet.pseudo;
@@ -108,28 +103,28 @@ function chargerTweets() {
           "ml-auto"
         );
         deleteBtn.innerHTML = `<i class="fa-solid fa-ellipsis"></i>`;
-        // nom.innerHTML = `<span class="text-white">${tweet.auteur}</span>`;
         deleteBtn.addEventListener("click", () => {
           fetch(`http://localhost:3000/tweets/${tweet.id}`, {
             method: "DELETE",
           }).then(() => {
-            chargerTweets();
+            chargerTweets(email); // on recharge avec le bon filtre
           });
         });
 
+        headerDiv.appendChild(img);
         headerDiv.appendChild(nom);
         headerDiv.appendChild(pseudo);
         headerDiv.appendChild(date);
         headerDiv.appendChild(deleteBtn);
 
-        // Paragraphe contenu tweet (en bloc sous le header)
         const textTweet = document.createElement("p");
         textTweet.textContent = tweet.contenu;
         textTweet.classList.add("text-white", "mt-2");
 
-        // Ajout dans le conteneur principal
         tweetDiv.appendChild(headerDiv);
         tweetDiv.appendChild(textTweet);
+
+        // Interactions du tweet avec les boutons like et retweet
 
         const interactionDiv = document.createElement("div");
         interactionDiv.classList.add(

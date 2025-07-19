@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>page d'acceuille</title>
+    <title>page de profil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
@@ -12,15 +12,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script type="module" src="js/tweet.js" defer></script>
+
+    <script type="module" src="./js/profil.js" defer></script>
   </head>
-  <body class="bg-black text-white">
-    <div class="flex min-h-screen">
-      <!-- le nav-bar du coté gauche -->
-        <aside class="hidden w-1/5 lg:block p-3 bg-black border-r border-gray-700 sticky top-0 h-screen">
-       
+  <body class="bg-black text-white h-screen overflow-y-auto">
+    <!-- Wrapper global en 3 colonnes -->
+    <div class="min-h-screen flex h-screen overflow-y-auto">
+      <!-- Sidebar gauche -->
+      <aside
+        class="hidden w-1/5 lg:block p-3 bg-black border-r sticky top-0 border-gray-700"
+      >
         <div class="flex items-center justify-center mb-2 ">
-          <div class="flex flex-col gap-2 mt-4 justify-center pl-4 transition duration-300">
+          <div class="flex flex-col gap-2 mt-4 justify-center pl-4">
             <a href="" class="text-2xl hover:bg-gray-700 rounded-full"
               ><i class="fa-brands fa-x-twitter"></i
             ></a>
@@ -31,7 +34,7 @@
             >
             <a
               href=""
-              class="flex items-center gap-4 text-2xl hover:bg-gray-700 p-1 rounded-full"
+              class="flex items-center gap-4 text-2xl hover:bg-gray-700 p-1  rounded-full"
               ><i class="fa-solid fa-magnifying-glass"></i
               ><span>Explorer</span></a
             >
@@ -77,7 +80,7 @@
             <div
               class="flex items-center gap-3 p-3 hover:bg-gray-800 rounded-full cursor-pointer mt-4"
             >
-              <img src="https://t4.ftcdn.net/jpg/03/74/64/51/240_F_374645192_A1auR4EmLbz1JixGQKOSpHb2JAH3H7hH.jpg" class="w-10 h-10 rounded-full"/>
+              <img />
               <div>
                 <p id="sidebar-nom" class="font-bold text-sm"></p>
                 <p id="sidebar-pseudo" class="text-gray-400 text-sm"></p>
@@ -87,75 +90,100 @@
           </div>
         </div>
       </aside>
-      <!-- la partie principale de la page -->
-      <main class="flex-1 border-gray-700 border-x w-full max-w-2xl ">
-        <div
-          class="p-2 border-b border-gray-700 sticky w-full backdrop-blur-lg top-0 z-20 overflow-x-auto lg:overflow-x-hidden"
-        >
-          <nav class="flex overflow-x-auto lg:overflow-x-hidden whitespace-nowrap text-sm gap-6 text-xl justify-center sm:justify-center px-4 py-2">
-            <a href="" class="hover:bg-gray-800 px-3 py-2 rounded transition duration-300 text-white"
-              >Pour vous</a
-            >
-            <a href="profil.html" class="hover:bg-gray-800 px-3 py-2 rounded transition duration-300 text-white">Page de profil</a>
-            <a href="" class="hover:bg-gray-800 px-3 py-2 rounded transition duration-300 text-white">E-commerce</a>
-            <a href="" class="hover:bg-gray-800 px-3 py-2 rounded transition duration-300 text-white">Web-developer</a>
-          </nav>
-        </div>
-        <div id="tweet-form" class="p-6 border-b border-gray-700 bg-black">
-          <div class="flex gap-4">
-            <img
-              id="user-photo"
-              alt="user-photo"
-              class="rounded-full w-10 h-10"
-            />
-            <form id="form" class="flex-1">
-              <textarea
-                name="tweet"
-                id="tweet-text"
-                placeholder="Quoi de neuf ?"
-                class="text-2xl w-full text-white bg-black placeholder-gray-600 resize-none outline-none"
-              ></textarea>
-              <div class="flex justify-end">
-                <button
-                  class="bg-[#d2d0c8] text-black p-4 w-32 text-lg font-bold rounded-full mt-6"
-                >
-                  Poster
-                </button>
-              </div>
-            </form>
 
-            <div class="flex items-center justify-between mt-2">
-              <div class="flex gap-4 text-lg">
-                <a href="" class="text-blue-500"
-                  ><i class="fa-solid fa-image"></i
-                ></a>
-                <a href="" class="text-blue-500"
-                  ><i class="fa-solid fa-face-smile"></i
-                ></a>
-                <a href="" class="text-blue-500"
-                  ><i class="fa-solid fa-house"></i
-                ></a>
-                <a href="" class="text-blue-500"
-                  ><i class="fa-solid fa-location-dot"></i
-                ></a>
-                <a href="" class="text-blue-500"
-                  ><i class="fa-solid fa-square-binary"></i
-                ></a>
-              </div>
-            </div>
+      <!-- Contenu principal au centre -->
+      <main class="flex-1 w-full p-0">
+        <!-- Header -->
+        <header
+          class="flex items-center gap-4 z-20 p-3 sticky bg-black-30 backdrop-blur-lg top-0 border-gray-700"
+        >
+          <button
+            onclick="window.location.href='acceuille.html'"
+            class="text-white hover:bg-gray-700 p-2 rounded-full"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <h1 class="profil-nom font-bold text-2xl"></h1>
+        </header>
+        <!-- Bannière de couverture -->
+        <div class="h[20rem] w-full flex-1 relative">
+          <img
+            id="banner"
+            alt="Photo de couverture"
+            class="w-full h-full object-cover"
+          />
+          <!-- Photo de profil -->
+          <div class="absolute -bottom-12 left-6">
+            <img
+              id="avatar"
+              alt=""
+              class="w-24 h-24 rounded-full border-4 border-black object-cover"
+            />
           </div>
         </div>
-        <div class="p-3 border-b border-gray-700">
-          <a
-            href=""
-            class="text-blue-500 flex items-center justify-center text-lg"
-            >Voir 35 nouveaux posts</a
-          >
-        </div>
-        <div id="tweet-list" class="p-6 border-gray-700"></div>
+
+        <!-- Informations de l'utilisateur -->
+        <section class="bg-black pt-16 px-6 pb-4 mb-4 border-gray-200">
+          <p id="nom-profil" class="text-xl font-sm text-gray-500"></p>
+          <p id="pseudo-profil" class="text-xl font-sm text-gray-500"></p>
+          <p id="email-profil" class="text-xl font-sm text-gray-500"></p>
+          <p id="bio-profil" class="text-xl font-sm text-white mb-2 mt-2"></p>
+          <div class="flex gap-4 mb-4 mt-4">
+            <p id="location-profil" class="text-xl font-sm text-gray-500"></p>
+            <p id="website-profil" class="text-xl font-sm text-gray-500"></p>
+          </div>
+          <p id="createdAt-profil" class="text-xl font-sm text-gray-500"></p>
+          <div class="flex gap-4 mt-2">
+            <p id="followers-profil" class="text-xl font-sm text-gray-500"></p>
+            <p id="following-profil" class="text-xl font-sm text-gray-500"></p>
+          </div>
+        </section>
+
+        <!-- Navigation secondaire (ex: onglets) -->
+        <nav
+          class="bg-black border-b border-gray-600 flex justify-between items-center w-full px-6 py-3"
+        >
+          <ul class="flex space-x-6 font-medium text-sm text-gray-500">
+            <li
+              class="text-blue-500 font-semibold border-b-2 border-blue-500 pb-2"
+            >
+              posts
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              Réponses
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              Médias
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              Likes
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              tweet
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              medias
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              arcticles
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              evenements
+            </li>
+            <li class="hover:text-blue-500 cursor-pointer flex-1 text-center">
+              groupes
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Liste des tweets -->
+        <section id="user-tweets" class="space-y-4 p-6 bg-black">
+          <!-- Tweets injectés ici via JS -->
+        </section>
       </main>
-      <!-- la partie droite de la page -->
-      <aside
+
+      <!-- Sidebar droite -->
+     <aside
         class="hidden lg:block w-1/4 p-4 h-screen sticky top-0 bg-black border-l border-gray-700"
       >
         <div

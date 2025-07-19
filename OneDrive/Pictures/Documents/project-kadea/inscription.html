@@ -12,8 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <script type="module" src="./js/inscription.js" defer></script>
   </head>
-  <body class="bg-black w-full h-screen">
+  <body class="bg-black w-full min-h-screen pb-12">
     <button
       class="fixed top-4 left w-10 h-10 flex items-center justify-center rounded-full text-white hover:bg-blue-600 z-50"
       onclick="window.history.back();"
@@ -24,50 +26,89 @@
     <div class="flex justify-center w-full mt-4">
       <img src="sl_z_072523_61700_01.jpg" alt="" class="w-32 h-auto" />
     </div>
-    <div class="auth w-1/1 flex justify-center items-center">
+    <div
+      class="auth w-1/1 flex justify-center items-center bg-gray-800 shadow-lg rounded-xl m max-w-md mx-auto"
+    >
       <div class="p-8 rounded-lg max-w-sm w-full text-center">
         <h2 class="text-2xl font-semibold mb-4 font-bold text-white">
           Créer un compte
         </h2>
-        <form action="" class="space-y-4">
+        <form id="signup-form" class="space-y-4">
           <div>
             <i class="fa-solid fa-id-card-clip bg-white"></i>
+            <label for="name" class="text-gray-400 mb-2"
+              >Nom complet obligatoire</label
+            >
             <input
               type="text"
               name="name"
-              id=""
-              placeholder="Nom et prenom
-        "
+              id="name"
+              placeholder="Nom complet"
               required
-              class="w-full rounded border-gray-600 text-gray-600 bg-transparent border p-4 mt-4 mb-4 focus:outline-none focus:border-blue-500"
+              class="w-full px-4 py-2 text-base rounded-xl bg-transparent text-white outline-none mt-4 transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
             />
           </div>
-          <input
-            type="number"
-            id=""
-            placeholder="Teléphone"
-            required
-            class="w-full rounded border-gray-600 text-gray-600 bg-transparent border p-4 focus: outline-none focus:border-blue-500"
-          />
-        </form>
-        <a
-          href="seConnecterEmail.html"
-          class="block text-blue-500 text-right mt-3"
-          >Utiliser un Email</a
-        >
+          <div>
+            <i class="fa-solid fa-user bg-white"></i>
+            <label for="username" class="text-gray-400">Pseudo unique</label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Nom d'utilisateur"
+              required
+              class="w-full px-4 py-2 text-base rounded-xl bg-transparent text-white mt-4 outline-none transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
+            />
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope bg-white"></i>
+            <label for="email" class="text-gray-400">Email obligatoire</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              required
+              class="w-full px-4 py-2 text-base rounded-xl bg-transparent text-white mt-4 outline-none transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
+            />
+          </div>
+          <div>
+            <i class="fa-solid fa-lock bg-white"></i>
+            <label for="password" class="text-gray-400"
+              >Mot de passe obligatoire</label
+            >
+            <p class="text-gray-400 text-sm mb-2">
+              Doit contenir au moins 8 caractères, une majuscule, une minuscule,
+              un chiffre et un caractère spécial.
+            </p>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Mot de passe"
+              required
+              autocomplete="new-password"
+              class="w-full px-4 py-2 text-base rounded-xl bg-transparent text-white mt-4 outline-none transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
+            />
+          </div>
 
-        <h3 class="text-white text-left mb-4 mt-4">Date de Naissance</h3>
-        <p class="text-left text-gray-600 mb-6">
-          cette information ne sera pas afficher publiquement Confirmez voter
-          âge, même si ce compte est pour une entremprise, un animal de
-          compagnie ou autre chose.
-        </p>
-        <form id="birthForm" class="space-y-4 max-w-md mx-auto">
+          <a
+            href="seConnecterEmail.html"
+            class="block text-blue-500 text-right mt-3"
+            >Utiliser un Email</a
+          >
+
+          <h3 class="text-white text-left mb-4 mt-4">Date de Naissance</h3>
+          <p class="text-left text-gray-400 mb-6">
+            cette information ne sera pas afficher publiquement Confirmez voter
+            âge, même si ce compte est pour une entremprise, un animal de
+            compagnie ou autre chose.
+          </p>
           <div class="flex space-x-2">
-            <!-- Jour -->
+            <!-- Mois -->
             <select
               id="month"
-              class="border border-gray-600 rounded-md p-2 w-1/3 bg-transparent text-gray-600"
+              class="w-full px-4 py-2 text-blue-500 rounded-xl bg-transparent text-black outline-none transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
               required
             >
               <option value="">Mois</option>
@@ -85,35 +126,44 @@
               <option value="12">Décembre</option>
             </select>
 
-            <select
-              id="day"
-              class="border border-gray-600 rounded-md p-2 w-1/3 bg-transparent text-gray-600"
-              required
-            >
-              <option value="">Jour</option>
-              <!-- Options jour ajoutées par JS -->
-            </select>
-
-            <!-- Mois -->
-
             <!-- Année -->
             <select
               id="year"
-              class="border border-gray-600 rounded-md p-2 w-1/3 bg-transparent text-gray-600"
+              class="w-full px-4 py-2 text-blue-500 rounded-xl bg-transparent text-black outline-none transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
               required
             >
               <option value="">Année</option>
               <!-- Options année ajoutées par JS -->
             </select>
+
+            <!-- Jour -->
+            <select
+              id="day"
+              class="w-full px-4 py-2 text-blue-500 rounded-xl bg-transparent text-black outline-none transition-all duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none"
+              required
+            >
+              <option value="">Jour</option>
+              <!-- Options jour ajoutées par JS -->
+            </select>
           </div>
+          <p id="signup-error" class="text-sm mt-4"></p>
 
           <button
             type="submit"
-            class="w-full bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-blue-700 mb-8"
+            class="w-full bg-white text-black px-4 py-2 rounded-full font-bold hover:bg-blue-700 mb-8 transition-colors duration-300 ease-in-out shadow-[inset_8px_8px_16px_blue,inset_-8px_-8px_16px_blue] border-none font-bold"
           >
             suivant
           </button>
         </form>
+        <div class="text-center mt-10">
+          <a href="seConnecterEmail.html">
+            <button
+              class="bg-white text-black font-bold border border-gray-600 rounded-full px-6 py-3 hover:bg-gray-300"
+            >
+              Aller à la page de connexion
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   </body>

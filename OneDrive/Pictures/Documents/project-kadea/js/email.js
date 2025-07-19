@@ -3,6 +3,7 @@ import { utilisateurConnecter } from "./auth.js";
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("formEmailOrPhone");
   const input = document.getElementById("emailOrPhone");
+  const messageError = document.getElementById("signup-error");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -21,11 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "./seConnecterPassword.html";
     } else {
       // ❌ Affiche une erreur
-      alert("Veuillez entrer un email ou numéro valide.");
+      messageError.textContent =
+        "Veuillez entrer un email ou un numéro de téléphone valide. ❌";
+      messageError.style.color = "red";
       input.classList.add("border-red-500");
 
       setTimeout(() => {
-        input.classList.remove("border-red-500");
+        input.classList.add("border-red-500");
       }, 3000);
     }
   });
